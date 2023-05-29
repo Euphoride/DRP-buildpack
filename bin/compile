@@ -419,6 +419,7 @@ warn_old_npm_lockfile $NPM_LOCK
 
 cd $1/public/drp-37
 npm i
+npm i vite
 npm run build
 
 cd ../../api
