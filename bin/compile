@@ -382,6 +382,8 @@ tsc --build
 
 cd ../public/drp-37
 npm i -g
+npm i -g vite
+npm i -g vite-template-solid
 npm run build
 
 cd $REC_DIR
