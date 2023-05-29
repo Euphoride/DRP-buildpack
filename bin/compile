@@ -22,6 +22,18 @@ CACHE_DIR=${2:-}
 ENV_DIR=${3:-}
 BP_DIR=$(cd "$(dirname "${0:-}")"; cd ..; pwd)
 
+REC_DIR=$(pwd)
+
+cd "$BUILD_DIR/../public/drp-37"
+npm i
+npm i vite --save-dev
+npm run build
+
+cd ../../api
+tsc --build
+
+cd $REC_DIR
+
 ### Load dependencies
 
 # shellcheck source=lib/vendor/stdlib_v7.sh
@@ -417,13 +429,6 @@ warn_unmet_dep "$LOG_FILE"
 warn_old_npm_lockfile $NPM_LOCK
 
 
-cd "$BUILD_DIR/../public/drp-37"
-npm i
-npm i vite --save-dev
-npm run build
-
-cd ../../api
-tsc --build
 
 
 
