@@ -373,6 +373,19 @@ prune_devdependencies() {
   fi
 }
 
+REC_DIR=$(pwd)
+
+cd "$BUILD_DIR/api"
+npm i
+tsc --build
+
+cd ../public/drp-37
+npm i
+npm run build
+
+cd $REC_DIR
+
+
 if $YARN_2; then
   meta_set "build-step" "save-cache"
   cache_build | output "$LOG_FILE"
