@@ -22,7 +22,6 @@ CACHE_DIR=${2:-}
 ENV_DIR=${3:-}
 BP_DIR=$(cd "$(dirname "${0:-}")"; cd ..; pwd)
 
-
 ### Load dependencies
 
 # shellcheck source=lib/vendor/stdlib_v7.sh
@@ -102,9 +101,6 @@ meta_set "build-step" "init"
 [ -f "$BUILD_DIR/yarn.lock" ] && YARN=true || YARN=false
 [ -f "$BUILD_DIR/package-lock.json" ] && NPM_LOCK=true || NPM_LOCK=false
 YARN_2=$(detect_yarn_2 "$YARN" "$BUILD_DIR")
-
-
-touch "$BP_DIR/features"
 
 ### Save build info
 features_init "nodejs" "$BUILD_DIR" "$CACHE_DIR" "$BP_DIR/features"
@@ -313,8 +309,6 @@ restore_cache() {
 meta_set "build-step" "restore-cache"
 restore_cache | output "$LOG_FILE"
 
-
-
 build_dependencies() {
   local cache_status start
 
@@ -373,23 +367,6 @@ prune_devdependencies() {
   fi
 }
 
-# REC_DIR=$(pwd)
-
-
-# cd $BUILD_DIR
-# npm i --include=dev
-# npm i -g typescript
-# tsc --build
-
-# cd ../public/drp-37
-# npm i --include=dev
-# npm i -g vite
-# npm i -g vite-plugin-solid
-# npm run build
-
-# cd $REC_DIR
-
-
 if $YARN_2; then
   meta_set "build-step" "save-cache"
   cache_build | output "$LOG_FILE"
@@ -436,12 +413,5 @@ warn_no_start "$BUILD_DIR"
 warn_unmet_dep "$LOG_FILE"
 warn_old_npm_lockfile $NPM_LOCK
 
-
-
-
-
 meta_set "build-step" "finished"
 log_meta_data >> "$BUILDPACK_LOG_FILE"
-
-
-node -v
