@@ -378,13 +378,13 @@ REC_DIR=$(pwd)
 
 cd $BUILD_DIR
 npm i --include=dev
-# npm i -g typescript
-tsc --build
+npm i -g typescript
+tsc
 
 cd ../public/drp-37
 npm i --include=dev
-# npm i -g vite
-# npm i -g vite-plugin-solid
+npm i -g vite
+npm i -g vite-plugin-solid
 npm run build
 
 cd $REC_DIR
