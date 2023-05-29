@@ -375,7 +375,7 @@ prune_devdependencies() {
 
 REC_DIR=$(pwd)
 
-cd "$BUILD_DIR/api"
+cd $BUILD_DIR
 npm i
 tsc --build
 
