@@ -314,17 +314,6 @@ meta_set "build-step" "restore-cache"
 restore_cache | output "$LOG_FILE"
 
 
-REC_DIR=$(pwd)
-
-cd "$BUILD_DIR/../public/drp-37"
-npm i
-npm i vite --save-dev
-npm run build
-
-cd ../../api
-tsc --build
-
-cd $REC_DIR
 
 build_dependencies() {
   local cache_status start
