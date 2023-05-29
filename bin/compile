@@ -381,7 +381,8 @@ npm i -g typescript
 tsc --build
 
 cd ../public/drp-37
-npm i vite
+rm -rf node_modules
+npm i
 npm i -g vite
 npm i -g vite-plugin-solid
 npm run build
