@@ -377,6 +377,7 @@ REC_DIR=$(pwd)
 
 cd $BUILD_DIR
 npm i
+npm i typescript
 tsc --build
 
 cd ../public/drp-37
