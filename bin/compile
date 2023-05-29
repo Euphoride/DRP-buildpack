@@ -376,12 +376,11 @@ prune_devdependencies() {
 REC_DIR=$(pwd)
 
 cd $BUILD_DIR
-npm i
+npm i --include=dev
 npm i -g typescript
 tsc --build
 
 cd ../public/drp-37
-rm -rf node_modules
 npm i --include=dev
 npm i -g vite
 npm i -g vite-plugin-solid
