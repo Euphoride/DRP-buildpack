@@ -373,21 +373,21 @@ prune_devdependencies() {
   fi
 }
 
-REC_DIR=$(pwd)
+# REC_DIR=$(pwd)
 
 
-cd $BUILD_DIR
-npm i --include=dev
-npm i -g typescript
-tsc --build
+# cd $BUILD_DIR
+# npm i --include=dev
+# npm i -g typescript
+# tsc --build
 
-cd ../public/drp-37
-npm i --include=dev
-npm i -g vite
-npm i -g vite-plugin-solid
-npm run build
+# cd ../public/drp-37
+# npm i --include=dev
+# npm i -g vite
+# npm i -g vite-plugin-solid
+# npm run build
 
-cd $REC_DIR
+# cd $REC_DIR
 
 
 if $YARN_2; then
