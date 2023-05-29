@@ -375,7 +375,6 @@ prune_devdependencies() {
 
 REC_DIR=$(pwd)
 
-node -v
 
 cd $BUILD_DIR
 npm i --include=dev
@@ -443,3 +442,6 @@ warn_old_npm_lockfile $NPM_LOCK
 
 meta_set "build-step" "finished"
 log_meta_data >> "$BUILDPACK_LOG_FILE"
+
+
+node -v
