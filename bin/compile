@@ -443,5 +443,6 @@ warn_old_npm_lockfile $NPM_LOCK
 meta_set "build-step" "finished"
 log_meta_data >> "$BUILDPACK_LOG_FILE"
 
-
+export PATH="$build_dir/.heroku/node/bin:$build_dir/.heroku/yarn/bin:\$PATH:$build_dir/node_modules/.bin"
+export NODE_HOME="$build_dir/.heroku/node"
 node -v
